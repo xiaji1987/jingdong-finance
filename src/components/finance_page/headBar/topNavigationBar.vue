@@ -24,20 +24,32 @@
             <i class="member-icon"></i>
           </a>
         </li>
-        <li class="menu-li-mobile-finance">
-          <i class="mobile-finance-icon1"></i>
+        <li class="menu-li-mobile-finance" @mouseover="mobileEnter()" @mouseleave="mobileLeave()" :class="mobileIsShow ? 'mobile-hover' : ''">
+          <transition name="">
+            <i class="mobile-finance-icon1" v-show="!mobileIsShow"></i>
+          </transition>
           <a href="https://m.jr.jd.com/integrate/download/html/pc.html">手机金融</a>
           <i class="mobile-finance-icon2"></i>
-          <div class="mobile-finance-list">
-            <div class="list-img"></div>
-            <div class="list-img"></div>
-            <div class="list-img"></div>
+          <div class="mobile-finance-list" v-show="mobileIsShow">
+            <div class="list-img">
+              <a href="http://m.jr.jd.com/integrate/download/html/pc.html">
+                <img src="http://storage.360buyimg.com/base/images/topbar/topbar-jrapp.png?20170804" alt="">
+              </a>
+            </div>
+            <div class="list-img">
+              <a href="http://m.jr.jd.com/integrate/download/html/pc.html">
+                <img src="http://storage.360buyimg.com/base/images/topbar/topbar-gpapp-new.png" alt="">
+              </a>
+            </div>
+            <div class="list-img">
+              <img src="http://storage.360buyimg.com/base/images/topbar/topbar-wxfw.png?20170823" alt="">
+            </div>
           </div>
         </li>
-        <li class="menu-li-service" @mouseover="serviceEnter()" @mouseleave="serviceLeave()">
+        <li class="menu-li-service" @mouseover="serviceEnter()" @mouseleave="serviceLeave()" :class="serviceIsShow ? 'mobile-hover' : ''">
           <span>联系客服</span>
           <i class="service-icon"></i>
-          <ul class="service-list" :class="serviceIsShow ? 'service-show' : ''">
+          <ul class="service-list" v-show="serviceIsShow">
             <li>
               <a href="javascript:;">帮助中心</a>
             </li>
@@ -68,10 +80,17 @@ export default {
     return {
       islogin: false,
       loginName: 'xiaji1987',
+      mobileIsShow: false,
       serviceIsShow: false
     }
   },
   methods: {
+    mobileEnter () {
+      this.mobileIsShow = true
+    },
+    mobileLeave () {
+      this.mobileIsShow = false
+    },
     serviceEnter () {
       this.serviceIsShow = true
     },
@@ -115,8 +134,12 @@ export default {
           width 20px
           height 14px
           vertical-align: text-bottom
+      .mobile-hover
+        background-color #fff
+        box-shadow 0 1px 3px rgba(0,0,0,.2)
+        z-index 200
       .menu-li-mobile-finance
-        margin-right 10px
+        width 105px
         .mobile-finance-icon1
           position absolute
           z-index 12
@@ -136,11 +159,27 @@ export default {
           height 4px
           overflow hidden
           position absolute
-          right -5px
+          right 5px
           top 15px
           z-index 100
+        .mobile-finance-list
+          position absolute
+          top 30px
+          left -147px
+          width 420px
+          border-radius 3px
+          background-color #fff
+          box-shadow 0 1px 3px rgba(0,0,0,.2)
+          .list-img
+            float left
+            width 140px
+            padding 20px 0 15px
+            text-align center
+            a
+              border none
+              padding 0px
       .menu-li-service
-        margin-right 8px
+        width 84px
         .service-icon
           background url(https://static.360buyimg.com/finance/base/1.2.0/css/i/topbar-arrow.png?20170522)
           background-repeat no-repeat
@@ -148,7 +187,7 @@ export default {
           height 4px
           overflow hidden
           position absolute
-          right -5px
+          right 5px
           top 15px
           z-index 100
         span
@@ -156,9 +195,18 @@ export default {
           color #a5a5a5
           padding 0 10px
         .service-list
-          display none
-        .service-show
-          display block
+          position absolute
+          top 30px
+          right 0px
+          width 84px
+          border-radius 0px 0px 3px 3px
+          background-color #fff
+          box-shadow 0 1px 3px rgba(0,0,0,.2)
+          text-align center
+          li
+            float none
+            a
+              border none
       .menu-li-website
         .website-icon
           width 8px

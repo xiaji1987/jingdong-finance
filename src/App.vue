@@ -100,4 +100,8 @@ body {
     -webkit-text-size-adjust: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+#app {
+  height: 100vh;
+  background-color: aqua;
+}
 </style>
