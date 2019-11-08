@@ -6,7 +6,7 @@ const state = {
 const actions = {
   getAllMenuLeft ({commit}) {
     api.getMenuLeft().then(res => {
-      console.log(res)
+      // console.log(res.data)
       commit('getAllMenuLeft', res)
     })
   }

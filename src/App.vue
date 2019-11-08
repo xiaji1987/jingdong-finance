@@ -64,6 +64,8 @@ table {
 a {
     text-decoration: none;
     -webkit-backface-visibility: hidden;
+    cursor: pointer;
+    outline: 0;
 }
 
 li {
