@@ -64,7 +64,7 @@ export default {
       box-sizing border-box
   .bgc
     position relative
-    width 1520px
+    width 1530px
     left -400px
     top -500px
     z-index -1

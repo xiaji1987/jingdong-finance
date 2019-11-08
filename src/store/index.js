@@ -6,6 +6,7 @@ import menuPendant from './modules/finance/menuPendant'
 import menuLeft from './modules/finance/menuLeft'
 import rotationChart from './modules/finance/rotationChart'
 import menuRight from './modules/finance/menuRight'
+import infoHeader from './modules/finance/infoHeader'
 
 Vue.use(Vuex)
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     menuPendant,
     menuLeft,
     rotationChart,
-    menuRight
+    menuRight,
+    infoHeader
   }
 })

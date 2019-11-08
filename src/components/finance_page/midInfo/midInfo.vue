@@ -1,14 +1,17 @@
 <template>
   <div class="midInfo">
     <infoHeader />
+    <midContext />
   </div>
 </template>
 
 <script>
 import infoHeader from './infoHeader'
+import midContext from './midContext'
 export default {
   components: {
-    infoHeader
+    infoHeader,
+    midContext
   }
 }
 </script>

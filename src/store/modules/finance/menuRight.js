@@ -11,7 +11,7 @@ const actions = {
       commit('getAllMenuRight', res)
     })
     api.getRightIcon().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getRightIcon', res)
     })
   }
@@ -31,7 +31,7 @@ const getters = {
       return []
     }
     let arr = [state.dataBottom.slice(0, 8), state.dataBottom.slice(8, state.dataBottom.length)]
-    console.log(arr)
+    // console.log(arr)
     return arr
   }
 }
