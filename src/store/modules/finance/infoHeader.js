@@ -6,7 +6,7 @@ const state = {
 const actions = {
   getAllInfoHeader ({commit}) {
     api.getInfoHeader().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllInfoHeader', res)
     })
   }

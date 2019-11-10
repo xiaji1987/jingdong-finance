@@ -7,6 +7,7 @@ import menuLeft from './modules/finance/menuLeft'
 import rotationChart from './modules/finance/rotationChart'
 import menuRight from './modules/finance/menuRight'
 import infoHeader from './modules/finance/infoHeader'
+import midContext from './modules/finance/midContext'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     menuLeft,
     rotationChart,
     menuRight,
-    infoHeader
+    infoHeader,
+    midContext
   }
 })
