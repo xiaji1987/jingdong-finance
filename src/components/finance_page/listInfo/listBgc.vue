@@ -1,6 +1,8 @@
 <template>
   <div class="listBgc">
-    <div class="list" v-for="item in 6" :key="item" :style="`background: url(${bgcImg[item - 1]}) no-repeat bottom`"></div>
+    <div class="list" v-for="item in 6" :key="item" :style="`background: url(${bgcImg[item - 1]}) no-repeat bottom`">
+      <component :is="route[item - 1]"></component>
+    </div>
   </div>
 </template>
 
@@ -32,6 +34,11 @@ export default {
     listInsu,
     listPay,
     listShare
+  },
+  methods: {
+    getALlInfo (data) {
+      console.log(data)
+    }
   }
 }
 </script>
