@@ -2,9 +2,9 @@
   <div class="menuPendant">
     <ul class="pendantUl">
       <li v-for="(item, index) in data" :key="index">
-        <a :href="item.linkUrl">
+        <router-link :to="item.linkUrl">
           <img :src="item.imageUrl">
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

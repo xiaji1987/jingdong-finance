@@ -1,13 +1,13 @@
 <template>
   <div class="headerBar">
     <div class="headerBarImg">
-      <a href="http://jr.jd.com/">
+      <router-link to="http://jr.jd.com/">
         <img src="http://storage.360buyimg.com/base/images/jdjr-logo/logo-jr-r.png?20181203">
-      </a>
+      </router-link>
     </div>
     <ul class="headerBarUl">
       <li class="headerList" v-for="(item, index) in ArrFir" :key="index" @mouseover="listInto(index)" @mouseleave="listOut(index)">
-        <a :href="`${item.src}`">{{item.titleName}}</a>
+        <router-link :to="`${item.src}`">{{item.titleName}}</router-link>
         <div class="listItem"  v-show="item.list" :class="index == MouseIndex ? 'disListItem' : ''">
           <dl v-for="(pro, indexList) in item.list" :key="indexList">
             <dt>{{pro.title}}
@@ -16,15 +16,15 @@
             <dd>
               <ul>
                 <li v-for="(ddd, indexpro) in pro.itemList" :key="indexpro">
-                  <a :href="`${ddd.src}`">{{ddd.title}}</a>
+                  <router-link :to="`${ddd.src}`">{{ddd.title}}</router-link>
                 </li>
               </ul>
             </dd>
           </dl>
           <div class="itemImg" v-for="(img, indexImg) in item.img" :key="indexImg + 'img'">
-            <a :href="`${img.src}`">
+            <router-link :to="`${img.src}`">
               <img :src="`${img.imgSrc}`">
-            </a>
+            </router-link>
           </div>
         </div>
       </li>
@@ -32,12 +32,12 @@
     </ul>
     <div class="headerBarInput">
       <input type="text" placeholder="小白基金" class="select">
-      <a href="javascript:" class="search-btn"></a>
+      <router-link to="javascript:" class="search-btn"></router-link>
     </div>
     <div class="headerBarInfo">
       <div class="infoAsset">
         <i class="assetIcon1"></i>
-        <a href="http:////trade.jr.jd.com/centre/browse.action">我的资产</a>
+        <router-link to="http:////trade.jr.jd.com/centre/browse.action">我的资产</router-link>
         <i class="assetIcon2"></i>
       </div>
       <div class="infoAll"></div>

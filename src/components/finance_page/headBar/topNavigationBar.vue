@@ -3,7 +3,7 @@
     <div class="topbar-right">
       <ul class="menu-ul">
         <li class="menu-li-home">
-          <a href="https://www.jd.com/">京东首页</a>
+          <router-link to="https://www.jd.com/">京东首页</router-link>
         </li>
         <li class="menu-li-login-register">
           <div v-show="!islogin">
@@ -16,25 +16,25 @@
           </div>
         </li>
         <li class="menu-li-transaction">
-          <a href="">我的交易单</a>
+          <router-link to="">我的交易单</router-link>
         </li>
         <li class="menu-li-member">
-          <a href="https://vip.jr.jd.com/?from=jrshouyedb">
+          <router-link to="https://vip.jr.jd.com/?from=jrshouyedb">
             会员中心
             <i class="member-icon"></i>
-          </a>
+          </router-link>
         </li>
         <li class="menu-li-mobile-finance" @mouseover="mobileEnter()" @mouseleave="mobileLeave()" :class="mobileIsShow ? 'mobile-hover' : ''">
           <transition name="">
             <i class="mobile-finance-icon1" v-show="!mobileIsShow"></i>
           </transition>
-          <a href="https://m.jr.jd.com/integrate/download/html/pc.html">手机金融</a>
+          <router-link to="https://m.jr.jd.com/integrate/download/html/pc.html">手机金融</router-link>
           <i class="mobile-finance-icon2"></i>
           <div class="mobile-finance-list" v-show="mobileIsShow">
             <div class="list-img" v-for="(item, index) in data.Finance" :key="index">
-              <a :href="`${item.src}`">
+              <router-link :to="`${item.src}`">
                 <img :src="`${item.img}`" alt="">
-              </a>
+              </router-link>
             </div>
           </div>
         </li>
@@ -43,12 +43,12 @@
           <i class="service-icon"></i>
           <ul class="service-list" v-show="serviceIsShow">
             <li v-for="(item, index) in data.service" :key="index">
-              <a :href="`${item.src}`">{{item.name}}</a>
+              <router-link :to="`${item.src}`">{{item.name}}</router-link>
             </li>
           </ul>
         </li>
         <li class="menu-li-website" @mouseover="websiteEnter()" @mouseleave="websiteLeave()" :class="websiteIsShow ? 'mobile-hover' : ''">
-          <a href="javascript:;">网站导航</a>
+          <router-link to="javascript:;">网站导航</router-link>
           <i class="website-icon"></i>
           <ul class="website-list" v-show="websiteIsShow">
             <li v-for="(item, index) in data.website" :key="index">
@@ -59,12 +59,12 @@
                 </dt>
                 <dd>
                   <div class="list-left" v-for="(itemLeft, indexLeft) in item.itemsLeft" :key="indexLeft + 'left' ">
-                    <a :href="`${itemLeft.src}`">{{itemLeft.itemName}}</a>
+                    <router-link :to="`${itemLeft.src}`">{{itemLeft.itemName}}</router-link>
                   </div>
                   <div class="list-right" v-for="(itemRight, indexRight) in item.itemsRight" :key="indexRight + 'right' ">
-                    <a :href="`${itemRight.src}`">{{itemRight.itemName}}
+                    <router-link :to="`${itemRight.src}`">{{itemRight.itemName}}
                       <i class="right-icon" v-show="itemRight.iconSrc" :style="`background: url(${itemRight.iconSrc})`"></i>
-                    </a>
+                    </router-link>
                   </div>
                 </dd>
               </dl>

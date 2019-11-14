@@ -47,8 +47,8 @@ const getters = {
     if (state.dataRight.length === 0) {
       return []
     }
-    // console.log(state.dataRight.slice(0, 1))
-    return state.dataRight.slice(0, 1)
+    // console.log(state.dataRight[0])
+    return state.dataRight[0]
   },
   getMidRightInfo: function (state) {
     if (state.dataRight.length === 0) {

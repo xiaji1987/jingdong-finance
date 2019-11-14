@@ -2,7 +2,7 @@
   <div class="listTrans">
     <div class="transLeft">
       <div class="leftTitle">京东小金库</div>
-      <div class="leftContext">{{data.servenYield}}
+      <div class="leftContext">{{dataLeft.servenYield}}
         <span>%</span>
       </div>
       <div class="leftSub">近7日年化收益率</div>
@@ -14,30 +14,26 @@
       <div class="leftTransMoney">
         可获得收益 <span>{{transMoney}}</span> 元
       </div>
-      <a :href="`${data.btnInfo.linkUrl}`" class="leftBtn">{{data.btnInfo.name}}</a>
+      <router-link v-if="dataLeft.btnInfo" :to="`${dataLeft.btnInfo.linkUrl}`" class="leftBtn">{{dataLeft.btnInfo.name}}</router-link>
       <ul class="leftUl">
-        <li v-for="(item, index) in data.adInfo" :key="index">
+        <li v-for="(item, index) in dataLeft.adInfo" :key="index">
           {{item.name}}
         </li>
       </ul>
     </div>
-    <div class="transRight">
-      <div class="rightTitle">
-        <span class="title"></span>
-        <span class="titleSub"></span>
-      </div>
-      <div class="rightTab">
-        <ul class="tabUl">
-          <li></li>
-        </ul>
-      </div>
+    <transRight />
+    <div class="transBottom">
+      <router-link class="bottomTo" v-for="(item, index) in dataLeft.navInfos" :key="index" :to="item.url">
+        {{item.name}}
+        <span>/</span>
+      </router-link>
     </div>
-    <div class="transBottom"></div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import transRight from './transRight'
 export default {
   name: 'listTrans',
   data () {
@@ -46,20 +42,20 @@ export default {
       transMoney: 0.84
     }
   },
+  components: {
+    transRight
+  },
   computed: {
     ...mapState({
-      data: state => state.listTrans.data
+      dataLeft: state => state.listTrans.dataLeft
     })
   },
   created () {
     this.$store.dispatch('listTrans/getAllListTrans')
   },
-  mounted () {
-    this.$emit('getInfo', this.data)
-  },
   watch: {
     value: function (value) {
-      this.transMoney = (value * this.data.servenYield / 100 / 365).toFixed(2)
+      this.transMoney = (value * this.dataLeft.servenYield / 100 / 365).toFixed(2)
     }
   }
 }
@@ -68,6 +64,7 @@ export default {
 <style scoped lang="stylus">
 .listTrans
   float right
+  margin-right 150px
   margin-top 110px
   .transLeft
     color #ffffff
@@ -131,4 +128,10 @@ export default {
         font-size 12px
         line-height 28px
         text-align center
+  .transBottom
+    color #ffffff
+    clear both
+    padding-top 15px
+    .bottomTo
+      color #fff
 </style>

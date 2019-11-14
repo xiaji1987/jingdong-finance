@@ -2,9 +2,9 @@
   <div class="block rotationChart">
     <el-carousel :interval="5000" arrow="always" height="370px" class="rotation">
       <el-carousel-item v-for="(item, index) in data" :key="index">
-        <a :href="`${item.linkUrl}`">
+        <router-link :to="`${item.linkUrl}`">
           <div :style="`background: url(${item.imageUrl})`" class="chart"></div>
-        </a>
+        </router-link>
       </el-carousel-item>
     </el-carousel>
     <el-carousel height="560px" class="bgc" :interval="5000" indicator-position="none">
@@ -15,7 +15,7 @@
     <div class="rotationBottom">
       <ul>
         <li class="bottomLi" v-for="(item, index) in dataBottom" :key="index">
-          <a :href="`${item.linkUrl}`">
+          <router-link :to="`${item.linkUrl}`">
             <div class="liImg">
               <img :src="`${item.imageUrl}`">
             </div>
@@ -27,7 +27,7 @@
               <p class="subText">{{item.subName}}</p>
               <p class="subText">{{item.ext1Name}}</p>
             </div>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

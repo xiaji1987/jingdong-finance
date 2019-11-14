@@ -6,7 +6,7 @@ const state = {
 const actions = {
   getAllListWhite ({commit}) {
     api.getListWhite().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllListWhite', res)
     })
   }

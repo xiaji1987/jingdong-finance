@@ -1,17 +1,17 @@
 <template>
   <div class="menuLeft">
-    <a class="leftTopImg" href="http://m.jr.jd.com/integrate/download/html/pc.html">
+    <router-link class="leftTopImg" to="http://m.jr.jd.com/integrate/download/html/pc.html">
       <img src="http://img30.360buyimg.com/jr_image/jfs/t1/14150/35/6062/15643/5c46c17cE25ce7c02/562085930ef1761c.png">
-    </a>
+    </router-link>
     <div class="menuList">
       <div class="list">
         <ul class="listUl">
           <li class="listLi" v-for="(item, index) in dataMenu" :key="index">
             <p class="listP">
-              <a :href="`${item.mainNav.url}`">{{item.mainNav.name}}</a>
+              <router-link :to="`${item.mainNav.url}`">{{item.mainNav.name}}</router-link>
             </p>
             <p class="listSub"  v-for="(Sub, indexSub) in item.subNav" :key="indexSub + 'Sub'">
-              <a :href="`${Sub.url}`">{{Sub.name}}</a>
+              <router-link :to="`${Sub.url}`">{{Sub.name}}</router-link>
             </p>
           </li>
         </ul>

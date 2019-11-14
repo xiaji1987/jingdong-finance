@@ -5,10 +5,10 @@
     </div>
     <ul class="headerTitle">
       <li v-for="(item, index) in data" :key="index">
-        <a :href="`${item.linkUrl}`">
+        <router-link :to="`${item.linkUrl}`">
           <img v-show="item.tips == 1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAOCAMAAAAG0/xxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI2ODAyNTQ0MUU2NjExRTdCRDMwOUJCMTA4MDg5MkUxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI2ODAyNTQ1MUU2NjExRTdCRDMwOUJCMTA4MDg5MkUxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjY4MDI1NDIxRTY2MTFFN0JEMzA5QkIxMDgwODkyRTEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjY4MDI1NDMxRTY2MTFFN0JEMzA5QkIxMDgwODkyRTEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5RbnmzAAAABlBMVEX////1Lz41sEeDAAAAL0lEQVR42mJgxAkYaCEFx0AApRhQpRjgpjCg68IqBTGBVF0EpWAuRJaiamgABBgA7TwBPx4MCEcAAAAASUVORK5CYII=" />
           {{item.name}}
-        </a>
+        </router-link>
         <span class="line">/</span>
       </li>
     </ul>

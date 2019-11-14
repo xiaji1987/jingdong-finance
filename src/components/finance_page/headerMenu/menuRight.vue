@@ -16,7 +16,7 @@
       </div>
       <div class="topMid">
         <div class="rightReco" v-for="(item, index) in data.info" :key="index" :style="`background: url(${getBgc(index)})`">
-          <a :href="`${item.linkUrl}`">
+          <router-link :to="`${item.linkUrl}`">
             <div class="recoTitle">
               {{item.name}}
               <i>|</i>
@@ -31,7 +31,7 @@
               <span>{{item.contents[2]}}</span>
               <span>{{item.contents[3]}}</span>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -39,10 +39,10 @@
       <div class="bottomIcon">
         <ul v-for="(item, index) in dataIcon" :key="index">
           <li v-for="(icon, index) in item" :key="index + 'icon'">
-            <a :href="`${icon.linkUrl}`">
+            <router-link :to="`${icon.linkUrl}`">
               <div :style="`background: url(${icon.imageUrl})`" class="iconImg"></div>
               <div class="iocnText">{{icon.name}}</div>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
