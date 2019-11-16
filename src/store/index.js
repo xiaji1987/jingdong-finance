@@ -4,6 +4,7 @@ import headerBar from './modules/finance/headerBar/index'
 import headerMenu from './modules/finance/headerMenu/index'
 import midInfo from './modules/finance/midInfo/index'
 import listInfo from './modules/finance/listInfo/index'
+import shop from './modules/finance/shop/index'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     ...headerBar,
     ...headerMenu,
     ...midInfo,
-    ...listInfo
+    ...listInfo,
+    ...shop
   }
 })

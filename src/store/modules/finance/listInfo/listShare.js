@@ -6,11 +6,11 @@ const state = {
 const actions = {
   getAllListShare ({commit}) {
     api.getListShare().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllListShare', res)
     })
     api.getShareNum().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllShareNum', res)
     })
   }
