@@ -5,7 +5,7 @@ const state = {
 const actions = {
   async getAllListTransSec ({commit}) {
     await api.getTransInfo1().then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllTransInfo', res)
     })
     await api.getTransInfo2().then(res => {

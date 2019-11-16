@@ -66,6 +66,7 @@ a {
     -webkit-backface-visibility: hidden;
     cursor: pointer;
     outline: 0;
+    color: #323232;
 }
 
 li {

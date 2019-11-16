@@ -1,6 +1,8 @@
 import api from '../../../../api/index'
 const state = {
-  data: []
+  dataInfo: [],
+  dataTop: [],
+  dataBottom: []
 }
 
 const actions = {
@@ -9,12 +11,26 @@ const actions = {
       // console.log(res.data)
       commit('getAllListWhite', res)
     })
+    api.getWhiteTop().then(res => {
+      // console.log(res.data)
+      commit('getWhiteTop', res)
+    })
+    api.getWhiteBottom().then(res => {
+      // console.log(res.data)
+      commit('getWhiteBottom', res)
+    })
   }
 }
 
 const mutations = {
   getAllListWhite (state, res) {
-    state.data = res.data
+    state.dataInfo = res.data
+  },
+  getWhiteTop (state, res) {
+    state.dataTop = res.data
+  },
+  getWhiteBottom (state, res) {
+    state.dataBottom = res.data
   }
 }
 

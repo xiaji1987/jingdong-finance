@@ -64,7 +64,7 @@ export default {
 <style scoped lang="stylus">
 .listTrans
   float right
-  margin-right 150px
+  margin-right 100px
   margin-top 110px
   .transLeft
     color #ffffff

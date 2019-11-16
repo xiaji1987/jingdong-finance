@@ -1,19 +1,19 @@
 import api from '../../../../api/index'
 const state = {
-  dataLeft: []
+  dataAll: []
 }
 const actions = {
-  getAllListTrans ({commit}) {
-    api.getListTrans().then(res => {
-      // console.log(res)
-      commit('getAllListTrans', res)
+  getAllListInsu ({commit}) {
+    api.getListInsu().then(res => {
+      // console.log(res.data)
+      commit('getAllListInsu', res)
     })
   }
 }
 
 const mutations = {
-  getAllListTrans (state, res) {
-    state.dataLeft = res.data
+  getAllListInsu (state, res) {
+    state.dataAll = res.data
     // console.log(state.dataLeft)
   }
 }

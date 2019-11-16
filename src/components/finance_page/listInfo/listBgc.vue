@@ -114,8 +114,8 @@ export default {
       height 640px
       width 460px
       text-align center
-      float left
-      margin-left 150px
+      position absolute
+      left 100px
       .Img
         height 100%
         margin 20px 0 70px
@@ -123,7 +123,7 @@ export default {
         display inline-block
         position absolute
         top 450px
-        left 270px
+        left 110px
         .btnTo
           width 220px
           height 56px
