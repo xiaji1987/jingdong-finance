@@ -56,11 +56,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
+@import '../../../style/changeScale.styl'
 .shopList
   width 1250px
   font-size 14px
   color #323232
   padding-top 240px
+  overflow hidden
   li
     float left
     width 280px
@@ -73,12 +76,16 @@ export default {
       display block
       height 220px
       overflow hidden
+      img:hover
+        changeScaleUp()
     .listText
       padding 15px
       .listName
         .nameTo
           display block
           font-weight bold
+        .nameTo:hover
+          changeColor(#f52f3e)
       .listIcon
         margin-top 15px
         position relative

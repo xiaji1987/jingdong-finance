@@ -78,6 +78,7 @@ export default {
 </script>
 
 <style scope lang="stylus">
+@import '../../../style/changeColor.styl'
 .headerBar
   padding-top 30px
   height 71px
@@ -122,7 +123,9 @@ export default {
       line-height 35px
       a
         font-weight 700
-        color #000
+        color #fff
+      a:hover
+        changeColor(#323232)
       .listItem
         position absolute
         top 82px
@@ -169,6 +172,9 @@ export default {
               font-size 14px
               text-align left
               font-weight normal
+              color #5e5e5e
+            a:hover
+              changeColor(#ff5256)
         .itemImg
           position absolute
           right 0
@@ -177,6 +183,13 @@ export default {
             vertical-align: top;
       .disListItem
         display block
+    .headerList:hover
+      background-color #fff
+      border-radius 5px 5px 0 0
+    .headerList:nth-child(1):hover
+      background transparent
+      a
+        color #ff5256
     .listVertical
       width 1px
       height 18px

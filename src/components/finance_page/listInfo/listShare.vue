@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changePosition.styl'
 .listShare
   float right
   margin-right 100px
@@ -156,6 +157,8 @@ export default {
             border-radius 20px
             margin-right 3px
             border: 1px solid #f6f6f6
+      li:hover
+        changeMoveTop()
   .shareBgc
     float left
     width 200px

@@ -106,6 +106,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changePosition.styl'
 .listBgc
   .list
     height 640px
@@ -143,6 +144,8 @@ export default {
             span
               font-size 12px
               opacity .7
+      .listBtn:hover
+        changeMoveTop()
       .listContext
         color #ffffff
         text-shadow 0 5px 5px rgba(0,0,0,.3)

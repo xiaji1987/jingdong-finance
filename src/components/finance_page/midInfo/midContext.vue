@@ -105,6 +105,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changePosition.styl'
+@import '../../../style/changeColor.styl'
 .midContext
   width 1200px
   margin 0 auto
@@ -162,6 +164,8 @@ export default {
           bottom 15px
           color #fff
           font-size 12px
+      .leftImg:hover
+        changeMoveTop()
       .leftContainer
         margin-top 20px
         margin-left -6px
@@ -174,12 +178,18 @@ export default {
               p
                 font-weight bold
                 display inline-block
+          .conLi:hover
+            .conA
+              changeColor(#f52f3e)
       .leftBottom
         position absolute
         top 300px
         .bottomTo
           font-size 12px
           color #5e5e5e
+      .leftBottom:hover
+        .bottomTo
+          changeColor(#f52f3e)
     .rightMeb
       width 250px
       float left
@@ -219,12 +229,19 @@ export default {
                 font-weight normal
               .subPrice
                 color #f52f3e
+        .list:hover
+          changeMoveRight()
+          .listA
+            changeColor(#f52f3e)
       .rightBottom
         position absolute
         top 300px
         a
           font-size 12px
           color #5e5e5e
+      .rightBottom:hover
+        a
+          changeColor(#f52f3e)
   .contextRight
     color #fff
     text-align center
@@ -247,6 +264,8 @@ export default {
         width 135px
         box-shadow 0 6px 15px rgba(0,0,0,.4)
         background #fff
+    .rightCon:hover
+      changeMoveTop()
     .rightUl
       float left
       margin 20px 0 0 70px
@@ -290,6 +309,8 @@ export default {
           border-radius 30px
           padding 10px 20px
           font-weight 700
+        .infoBtn:hover
+          changeSlotColor(#f52f3e, #fff)
       .conList
         margin-top 10px
         float left
@@ -321,4 +342,8 @@ export default {
               .shopName
                 color #f52f3e
                 padding-top 25px
+          .conList:hover
+            changeMoveTop()
+            .shopInfo
+              changeColor(#f52f3e)
 </style>

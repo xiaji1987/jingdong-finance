@@ -73,6 +73,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+// @import '../../../style/changePosition.styl'
 .menuRight
   width 270px
   position absolute
@@ -146,6 +147,9 @@ export default {
             padding-top 15px
             span
               font-size 14px
+      // .rightReco:hover
+        // changeMoveTop(-5px)
+        // transform translateY(-10px)
   .rightBottom
     width 270px
     height 160px

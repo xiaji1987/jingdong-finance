@@ -62,6 +62,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
 .listTrans
   float right
   margin-right 100px
@@ -121,6 +122,8 @@ export default {
       font-size 16px
       font-weight 700
       margin-top 30px
+    .leftBtn:hover
+      changeSlotColor(#c6a46a, #fff)
     .leftUl
       margin-top 45px
       li
@@ -134,4 +137,8 @@ export default {
     padding-top 15px
     .bottomTo
       color #fff
+      span
+        color #fff
+    .bottomTo:hover
+      changeColor(#f52f3e)
 </style>

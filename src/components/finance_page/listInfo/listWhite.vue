@@ -119,6 +119,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
+@import '../../../style/changePosition.styl'
 .listWhite
   float right
   width 730px
@@ -147,6 +149,8 @@ export default {
         float left
         width 190px
         height 190px
+        img:hover
+          changeMoveTop()
       .conInfo
         margin-left 30px
         float left
@@ -226,6 +230,8 @@ export default {
         width 140px
         float left
         position relative
+        img:hover
+          changeMoveTop()
       .listCon
         float left
         line-height 28px
@@ -233,6 +239,8 @@ export default {
           padding-top 25px
           font-size 18px
           font-weight 700
+        .conTitle:hover
+          changeColor(#f52f3e)
         .conSub
           color #f52f3e
     .bottomList:nth-child(2)
@@ -243,4 +251,8 @@ export default {
     padding-top 15px
     .bottomTo
       color #fff
+      span
+        color #ffffff
+    .bottomTo:hover
+      changeColor(#f52f3e)
 </style>

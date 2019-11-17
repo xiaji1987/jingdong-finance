@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changePosition.styl'
 .menuLeft
   width 240px
   height 530px

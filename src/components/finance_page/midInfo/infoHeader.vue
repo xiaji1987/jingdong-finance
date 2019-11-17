@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
 .infoHeader
   width 1200px
   margin 0 auto
@@ -60,6 +61,8 @@ export default {
           height 14px
           float left
           margin 7px 5px 0 0
+      a:hover
+        changeColor(#f52f3e)
       .line
         position absolute
         right -25px

@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
+@import '../../../style/changePosition.styl'
 .listFund
   float right
   margin-right 100px
@@ -93,10 +95,16 @@ export default {
           left 50%
           margin-left -85px
           bottom 20px
+    li:hover
+      changeMoveTop()
   .listTitle
     color #ffffff
     clear both
     padding-top 15px
     .bottomTo
       color #fff
+      span
+        color #ffffff
+    .bottomTo:hover
+      changeColor(#f52f3e)
 </style>

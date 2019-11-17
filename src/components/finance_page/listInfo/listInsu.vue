@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changeColor.styl'
+@import '../../../style/changePosition.styl'
 .listInsu
   float right
   margin-right 100px
@@ -73,10 +75,18 @@ export default {
           font-weight 700
           span
             font-size 18px
+    .list:hover
+      changeMoveTop()
+      .listTo
+        changeColor(#f52f3e)
   .listTitle
     color #ffffff
     clear both
-    padding 15px 0 0 10px
+    padding-top 15px
     .bottomTo
       color #fff
+      span
+        color #ffffff
+    .bottomTo:hover
+      changeColor(#f52f3e)
 </style>

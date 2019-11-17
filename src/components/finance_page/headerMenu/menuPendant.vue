@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '../../../style/changePosition.styl'
 .menuPendant
   width 90px
   height 360px
@@ -49,4 +50,7 @@ export default {
         height 124px
         img
           vertical-align top
+    // li:hover
+    //   changeMoveTop(-5px)
+      // border-radius 0px
 </style>
