@@ -33,4 +33,5 @@ export default {
   .icon:hover
     height 80px
     transition all 1s
+    cursor pointer
 </style>

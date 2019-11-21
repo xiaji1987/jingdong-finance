@@ -26,6 +26,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: _import_('register')
+    },
+    {
+      path: '/wealth',
+      name: 'wealth',
+      component: _import_('wealth')
     }
   ]
 })

@@ -2,30 +2,20 @@ import api from '../../../../api/index'
 const state = {
   dataList: []
 }
-
+const arr = ['_jsonpz1gfll12o0j', '_jsonpw17du24tfy', '_jsonpjcwos0uegbg', '_jsonpteq8x57znpp', '_jsonp48cicg6s5px']
 const actions = {
-  getAllShopList ({commit}, index) {
-    api.getShopListFir().then(res => {
+  getAllShopList ({commit}, page) {
+    api.getShopList(page, arr).then(res => {
       console.log(res.data)
       commit('getAllShopList', res)
     })
-    // setTimeout(() => {
-    // api.getShopListSec().then(res => {
-    //   console.log(res.data)
-    //   commit('getShopListPush', res)
-    // })
-    // }, 5000)
   }
 }
 
 const mutations = {
   getAllShopList (state, res) {
-    state.dataList = res.data
-    // console.log(state.dataLeft)
-  }// ,
-  // getShopListPush (state, res) {
-  //   state.dataList.goodThings.push(...res.data.goodThings)
-  // }
+    state.dataList.push(...res.data.goodThings)
+  }
 }
 
 export default ({

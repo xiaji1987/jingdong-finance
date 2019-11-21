@@ -1,5 +1,5 @@
 <template>
-  <div class="headerBar">
+  <div class="headerBar" :class="isShow ? 'headerFix' : ''">
     <div class="headerBarImg">
       <router-link to="http://jr.jd.com/">
         <img src="http://storage.360buyimg.com/base/images/jdjr-logo/logo-jr-r.png?20181203">
@@ -7,7 +7,7 @@
     </div>
     <ul class="headerBarUl">
       <li class="headerList" v-for="(item, index) in ArrFir" :key="index" @mouseover="listInto(index)" @mouseleave="listOut(index)">
-        <router-link :to="`${item.src}`">{{item.titleName}}</router-link>
+        <router-link :to="runTo[index]">{{item.titleName}}</router-link>
         <div class="listItem"  v-show="item.list" :class="index == MouseIndex ? 'disListItem' : ''">
           <dl v-for="(pro, indexList) in item.list" :key="indexList">
             <dt>{{pro.title}}
@@ -50,7 +50,9 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      MouseIndex: ''
+      MouseIndex: '',
+      isShow: false,
+      runTo: ['/', '/wealth', '', '', '', '', '', '', '', '']
     }
   },
   computed: {
@@ -70,9 +72,18 @@ export default {
       // console.log(index)
       this.MouseIndex = ''
     }
+    // handleScroll (event) {
+    //   console.log(event)
+    //   if (document.documentElement.scrollTop >= 200) {
+    //     this.isShow = true
+    //   } else {
+    //     this.isShow = false
+    //   }
+    // }
   },
   created () {
     this.$store.dispatch('headerBar/getAllHeaderBar')
+    // window.addEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -122,10 +133,7 @@ export default {
       text-align center
       line-height 35px
       a
-        font-weight 700
-        color #fff
-      a:hover
-        changeColor(#323232)
+        color #323232
       .listItem
         position absolute
         top 82px
@@ -180,12 +188,14 @@ export default {
           right 0
           margin 10px 30px 0 0
           img
-            vertical-align: top;
+            vertical-align: top
       .disListItem
         display block
     .headerList:hover
       background-color #fff
       border-radius 5px 5px 0 0
+      a
+        changeColor(#ff5256)
     .headerList:nth-child(1):hover
       background transparent
       a
@@ -239,4 +249,12 @@ export default {
       border 1px solid #e6e6e6
       border-radius 3px
       position relative
+.headerFix
+  position fixed
+  top 0
+  padding-top 0
+  z-index 999
+  background-color #fff
+  width 100%
+  padding-left 170px
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="shopList">
     <ul>
-      <li v-for="(item, index) in dataList.goodThings" :key="index">
+      <li v-for="(item, index) in dataList" :key="index">
         <router-link class="listTo" :to="item.linkUrl">
           <img :src="item.imageUrl">
         </router-link>
@@ -41,7 +41,8 @@ export default {
   name: 'shopList',
   data () {
     return {
-      index: 0
+      index: 0,
+      page: 1
     }
   },
   computed: {
@@ -50,7 +51,23 @@ export default {
     })
   },
   created () {
-    this.$store.dispatch('shopList/getAllShopList')
+    this.$store.dispatch('shopList/getAllShopList', this.page)
+    // window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll () {
+      var shopList = document.querySelector('.shopList')
+      if (shopList.getBoundingClientRect().bottom <= -446.1) {
+        if (this.page === 5) {
+          return
+        }
+        this.page++
+        this.$store.dispatch('shopList/getAllShopList', this.page)
+      }
+    }
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -76,8 +93,10 @@ export default {
       display block
       height 220px
       overflow hidden
-      img:hover
-        changeScaleUp()
+      img
+        transition all 1s ease
+        &:hover
+          changeScaleUp()
     .listText
       padding 15px
       .listName
