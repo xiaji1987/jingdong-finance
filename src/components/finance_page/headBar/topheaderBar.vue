@@ -6,8 +6,8 @@
       </router-link>
     </div>
     <ul class="headerBarUl">
-      <li class="headerList" v-for="(item, index) in ArrFir" :key="index" @mouseover="listInto(index)" @mouseleave="listOut(index)">
-        <router-link :to="runTo[index]">{{item.titleName}}</router-link>
+      <li class="headerList" v-for="(item, index) in ArrFir" :key="index" @mouseover="listInto(index)" @mouseleave="listOut(index)"  @click="indexClick(index)">
+        <router-link :to="runTo[index]" :class="index == clickIndex ? 'changeColor' : ''">{{item.titleName}}</router-link>
         <div class="listItem"  v-show="item.list" :class="index == MouseIndex ? 'disListItem' : ''">
           <dl v-for="(pro, indexList) in item.list" :key="indexList">
             <dt>{{pro.title}}
@@ -52,7 +52,8 @@ export default {
     return {
       MouseIndex: '',
       isShow: false,
-      runTo: ['/', '/wealth', '', '', '', '', '', '', '', '']
+      runTo: ['/', '/wealth', '', '', '', '', '', '', '', ''],
+      clickIndex: 0
     }
   },
   computed: {
@@ -71,6 +72,9 @@ export default {
     listOut (index) {
       // console.log(index)
       this.MouseIndex = ''
+    },
+    indexClick (index) {
+      this.clickIndex = index
     }
     // handleScroll (event) {
     //   console.log(event)
@@ -112,10 +116,6 @@ export default {
     margin 20px 0 0 10px
     font-size 16px
     width 685px
-    .headerList:nth-child(1)
-      a
-        color #ff5256
-        font-weight 700
     .headerList:nth-child(7)
       width 76px
     .headerList:nth-child(8)
@@ -134,6 +134,9 @@ export default {
       line-height 35px
       a
         color #323232
+      .changeColor
+        color #ff5256
+        font-weight 700
       .listItem
         position absolute
         top 82px
