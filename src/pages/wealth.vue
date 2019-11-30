@@ -1,20 +1,23 @@
 <template>
   <div>
-    <headerBar />
     <headerBarBottom />
     <wealthMenu />
+    <wealthFanc />
+    <wealthList />
   </div>
 </template>
 
 <script>
-import headerBar from '@/components/finance_page/headBar/headBar'
 import headerBarBottom from '@/components/wealth/headerBarBottom'
 import wealthMenu from '@/components/wealth/wealthMenu'
+import wealthFanc from '@/components/wealth/wealthFanc'
+import wealthList from '@/components/wealth/wealthList'
 export default {
   components: {
-    headerBar,
     headerBarBottom,
-    wealthMenu
+    wealthMenu,
+    wealthFanc,
+    wealthList
   }
 }
 </script>
