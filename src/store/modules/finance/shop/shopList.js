@@ -6,7 +6,7 @@ const arr = ['_jsonpz1gfll12o0j', '_jsonpw17du24tfy', '_jsonpjcwos0uegbg', '_jso
 const actions = {
   getAllShopList ({commit}, page) {
     api.getShopList(page, arr).then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       commit('getAllShopList', res)
     })
   }

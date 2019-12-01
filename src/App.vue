@@ -2,15 +2,21 @@
   <div id="app">
     <headerBar/>
     <router-view/>
+    <footerBar />
+    <floatBottom />
   </div>
 </template>
 
 <script>
 import headerBar from '@/components/finance_page/headBar/headBar'
+import footerBar from '@/components/finance_page/footerBar/footerBar'
+import floatBottom from '@/components/finance_page/footerBar/floatBottom'
 export default {
   name: 'App',
   components: {
-    headerBar
+    headerBar,
+    footerBar,
+    floatBottom
   }
 }
 </script>

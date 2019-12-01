@@ -92,12 +92,47 @@
             </router-link>
           </div>
           <div class="rightBtnText">
-            <div class="listTalk" v-for="(item, index) in talkList" :key="index"></div>
+            <div class="listTalk" v-for="item in talkList" :key="item.id" :class="indexEnter == item.id ? 'talkEnt' : ''" @mouseenter="talkEnter(item.id)">
+              <div class="talkTitle">
+                <router-link class="titleTo" to="">
+                  <i class="titleIcon"></i>
+                  {{item.title}}
+                </router-link>
+              </div>
+              <div class="talkText">
+                <p>{{item.text}}</p>
+                <div class="talkCOn">
+                  <span>{{item.num}}
+                    <span>%</span>
+                  </span>
+                  <b>{{item.dateText}}</b>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="list listright">
+    <div class="list listBtm">
+      <h3>特色产品
+        <span class="listIcon"></span>
+        <router-link class="listTo" to="">更多特色产品 ></router-link>
+      </h3>
+      <p class="listTitle">体验更优质，丰富的理财产品</p>
+      <div class="btnBox">
+        <div class="boxImg" v-for="(item, index) in btmImg" :key="index" :style="`background: url(${item.imgSrc}) no-repeat`">
+          <router-link class="boxImgTo" to="">
+            <div class="boxTitle">
+              <h3>{{item.title}}</h3>
+              <p>{{item.text}}</p>
+            </div>
+            <div class="boxBtn">
+              <span></span>
+              <b>查看详情</b>
+            </div>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -107,6 +142,7 @@ export default {
   name: 'wealthList',
   data () {
     return {
+      indexEnter: 1,
       topText: [{
         imgSrc: '//static.360buyimg.com/finance/financial/index/2.0.0/images/d-pro01.jpg',
         textDay: 1,
@@ -148,29 +184,53 @@ export default {
         income: 1.58
       }],
       talkList: [{
+        id: 1,
         title: '平时很忙抽不出时间理财',
         text: '选择基金定投躺着赚钱不操心',
         num: 7.50,
         dateText: '定投近3年'
       },
       {
-        title: '平时很忙抽不出时间理财',
-        text: '选择基金定投躺着赚钱不操心',
-        num: 7.50,
-        dateText: '定投近3年'
+        id: 2,
+        title: '初识基金不知道该买什么',
+        text: '货基/债基收益波动小，适合入门',
+        num: 3.43,
+        dateText: '近一年涨幅'
       },
       {
-        title: '平时很忙抽不出时间理财',
-        text: '选择基金定投躺着赚钱不操心',
-        num: 7.50,
-        dateText: '定投近3年'
+        id: 3,
+        title: '资深”基”友想降低投资风险',
+        text: '组合购买分担风险，拒绝过山车',
+        num: 4.23,
+        dateText: '近一年涨幅'
+      }],
+      btmImg: [{
+        imgSrc: '//storage.jd.com/article-image/14890466521772323.jpg',
+        title: '京东黄金',
+        text: '买金超简单，存金享收益'
+      },
+      {
+        imgSrc: '//storage.jd.com/article-image/1531362618043dqlc.jpg',
+        title: '小白精选',
+        text: '稳健精选'
+      },
+      {
+        imgSrc: '//storage.jd.com/article-image/15331892575701111.jpg',
+        title: '养老保障',
+        text: '月月盈'
       }]
+    }
+  },
+  methods: {
+    talkEnter (id) {
+      this.indexEnter = id
     }
   }
 }
 </script>
 
 <style scoped lang="stylus">
+
 .wealthList
   padding 25px 30px
   background-color #fff
@@ -273,7 +333,8 @@ export default {
     position absolute
     top 450px
     left 30px
-    // overflow hidden
+    padding-bottom 40px
+    border-bottom 1px solid #f0f0f0
     .midText
       padding-bottom 40px
       padding-top 10px
@@ -446,4 +507,120 @@ export default {
                   p
                     font-size 14px
                     color #a5a5a5
+        .rightBtnText
+          padding-top 20px
+          overflow hidden
+          height 200px
+          .listTalk
+            overflow hidden
+            height 24px
+            padding-left 20px
+            transition all 0.5s ease
+            .talkTitle
+              font-weight 700
+              font-size 18px
+              .titleTo
+                color #323232
+                transform all 0.1s ease
+                position relative
+                .titleIcon
+                  width 3px
+                  height 3px
+                  background-color #5e5e5e
+                  display block
+                  position absolute
+                  left -15px
+                  top 10px
+                  transform rotate(45deg)
+              .titleTo:hover
+                color #f52f3e
+            .talkText
+              p
+                font-size 14px
+                color #5e5e5e
+                line-height 22px
+                padding-top 3px
+              .talkCOn
+                margin-top 8px
+                span
+                  font-size 28px
+                  color #f52f3e
+                  span
+                    font-weight 700
+                    font-size 14px
+                b
+                  font-weight 400
+                  margin-left 10px
+                  color #a5a5a5
+          .talkEnt
+            height 95px
+            .titleTo
+              font-weight 700
+  .listBtm
+    position absolute
+    left 30px
+    top 900px
+    .btnBox
+      margin-top 10px
+      .boxImg:nth-child(1)
+        margin-left 0!important
+      .boxImg
+        float left
+        width 365px
+        height 240px
+        position relative
+        overflow hidden
+        margin-left 20px
+        .boxImgTo
+          .boxTitle
+            width 256px
+            height 100px
+            margin 45px auto
+            background url(https://static.360buyimg.com/finance/financial/index/2.0.0/css/i/bg-sd3f16611f8.png) no-repeat
+            background-position 0 -285px
+            z-index top
+            h3
+              font-size 44px
+              padding-top 18px
+              padding-bottom 10px
+              font-weight 700
+              color #ffffff
+              text-align center
+              z-index 3
+            p
+              font-size 14px
+              color #fff
+              text-align center
+              z-index 3
+          .boxBtn
+            width 130px
+            height 40px
+            z-index 2
+            position absolute
+            bottom 30px
+            left 50%
+            margin-left -65px
+            box-shadow 0 10px 10px rgba(0, 0, 0, 0.4)
+            transition all 0.3s ease
+            span
+              width 130px
+              height 40px
+              background rgba(0, 0, 0, 0.8)
+              position absolute
+              top 0
+              left 0
+              border-radius 3px
+            b
+              text-align center
+              font-size 14px
+              color #ffffff
+              position absolute
+              width 70px
+              left 50%
+              top 50%
+              margin-left -35px
+              margin-top -10px
+      .boxImg:hover
+        .boxBtn
+          transform translateY(-10px)
 </style>

@@ -296,6 +296,7 @@ export default {
     left 0
     height 120px
     width 100%
+    overflow hidden
     .bgc
       width 6000px
       position absolute
